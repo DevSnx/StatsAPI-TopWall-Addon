@@ -1,0 +1,8 @@
+name: StatsAPI-TopWall-Addon
+version: 1.0.0
+author: Snx
+
+main: de.snx.statsapi.addon.topwall.StatsAPIAddon
+
+commands:
+  setwall:
