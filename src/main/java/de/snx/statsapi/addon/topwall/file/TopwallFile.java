@@ -1,5 +1,6 @@
 package de.snx.statsapi.addon.topwall.file;
 
+import de.snx.statsapi.addon.topwall.StatsAPIAddon;
 import de.snx.statsapi.file.FileBase;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -27,7 +28,6 @@ public class TopwallFile extends FileBase {
 
     public void loadSkulls(){
         for(int i = 0; i < 10; i++){
-            //SETPLAYERSKULLS!
         }
     }
 
