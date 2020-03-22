@@ -1,16 +1,15 @@
 package de.snx.statsapi.addon.topwall.file;
 
-import de.snx.statsapi.addon.topwall.StatsAPIAddon;
 import de.snx.statsapi.file.FileBase;
+import de.snx.statsapi.manager.other.RankedType;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.inventory.meta.SkullMeta;
 
 public class TopwallFile extends FileBase {
 
     public TopwallFile(){
-        super("", "");
+        super("", "topwall");
         writeDefaults();
         loadSkulls();
     }
@@ -31,9 +30,9 @@ public class TopwallFile extends FileBase {
         }
     }
 
-    public Location getLocation(Integer skull, boolean direction){
+    public Location getLocation(RankedType rankedType, Integer skull, boolean direction){
         Location loc = null;
-        String path = "TOPWALL.LOCATION.TOP." + skull + ".LOCATION";
+        String path = "TOPWALL.LOCATION." + rankedType.toString() + "." + skull + ".LOCATION";
         if (getConfig().contains(path)){
             String w = getConfig().getString(path + ".WORLD");
             double x = getConfig().getDouble(path + ".X");
@@ -56,9 +55,9 @@ public class TopwallFile extends FileBase {
         return loc;
     }
 
-    public void setLocation(Integer skull, Location loc, boolean direction){
+    public void setLocation(RankedType rankedType, Integer skull, Location loc, boolean direction){
         FileConfiguration cfg = getConfig();
-        String path = "TOPWALL.LOCATION.TOP." + skull + ".LOCATION";
+        String path = "TOPWALL.LOCATION." + rankedType.toString() + "." + skull + ".LOCATION";
         cfg.set(path + ".WORLD", loc.getWorld().getName());
         cfg.set(path + ".X", Double.valueOf(loc.getX()));
         cfg.set(path + ".Y", Double.valueOf(loc.getY()));

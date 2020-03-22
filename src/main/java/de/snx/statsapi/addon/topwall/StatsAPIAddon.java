@@ -14,12 +14,6 @@ public class StatsAPIAddon extends JavaPlugin {
     public void onEnable() {
         instance = this;
         fileManager = new FileManager();
-
-
-
-
-
-
     }
 
     @Override
